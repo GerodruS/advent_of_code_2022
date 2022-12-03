@@ -1,6 +1,6 @@
-struct Solution;
+struct Day01;
 
-impl Solution {
+impl Day01 {
     pub fn part_1(s: &str) -> i32 {
         let mut max = 0;
 
@@ -48,22 +48,22 @@ mod tests {
 
     #[test]
     fn part_1_0() {
-        test(&Solution::part_1, "input/day_01_0.txt", 24000);
+        test(&Day01::part_1, "input/day_01_0.txt", 24000);
     }
 
     #[test]
     fn part_1_1() {
-        test(&Solution::part_1, "input/day_01_1.txt", 72478);
+        test(&Day01::part_1, "input/day_01_1.txt", 72478);
     }
 
     #[test]
     fn part_2_0() {
-        test(&Solution::part_2, "input/day_01_0.txt", 45000);
+        test(&Day01::part_2, "input/day_01_0.txt", 45000);
     }
 
     #[test]
     fn part_2_1() {
-        test(&Solution::part_2, "input/day_01_1.txt", 210367);
+        test(&Day01::part_2, "input/day_01_1.txt", 210367);
     }
 
     fn test(f: &dyn Fn(&str) -> i32, path: &str, r: i32) {

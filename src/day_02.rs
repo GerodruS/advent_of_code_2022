@@ -1,6 +1,6 @@
-struct Solution;
+struct Day02;
 
-impl Solution {
+impl Day02 {
     pub fn part_1(s: &str) -> i32 {
         const L_ROCK: char = 'A';
         const L_PAPER: char = 'B';
@@ -85,22 +85,22 @@ mod tests {
 
     #[test]
     fn part_1_0() {
-        test(&Solution::part_1, "input/day_02_0.txt", 15);
+        test(&Day02::part_1, "input/day_02_0.txt", 15);
     }
 
     #[test]
     fn part_1_1() {
-        test(&Solution::part_1, "input/day_02_1.txt", 13924);
+        test(&Day02::part_1, "input/day_02_1.txt", 13924);
     }
 
     #[test]
     fn part_2_0() {
-        test(&Solution::part_2, "input/day_02_0.txt", 12);
+        test(&Day02::part_2, "input/day_02_0.txt", 12);
     }
 
     #[test]
     fn part_2_1() {
-        test(&Solution::part_2, "input/day_02_1.txt", 13448);
+        test(&Day02::part_2, "input/day_02_1.txt", 13448);
     }
 
     fn test(f: &dyn Fn(&str) -> i32, path: &str, r: i32) {
