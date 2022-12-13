@@ -58,11 +58,9 @@ impl Day12 {
         let height = heights.len();
         let width = heights[0].len();
 
-        let mut start = (0,0);
         let mut end = (0,0);
         for (y, line) in heights.iter_mut().enumerate() {
             if let Some(x) = line.iter().position(|&x| x == b'S') {
-                start = (x,y);
                 line[x] = b'a';
             }
             if let Some(x) = line.iter().position(|&x| x == b'E') {
@@ -125,7 +123,7 @@ mod tests {
 
     #[test]
     fn part_2_1() {
-        test(&Day12::part_2, "input/day_12_1.txt", 000);
+        test(&Day12::part_2, "input/day_12_1.txt", 386);
     }
 
     fn test(f: &dyn Fn(&str) -> i32, path: &str, r: i32) {
