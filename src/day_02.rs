@@ -2,79 +2,45 @@ struct Day02;
 
 impl Day02 {
     pub fn part_1(s: &str) -> i32 {
-        const L_ROCK: char = 'A';
-        const L_PAPER: char = 'B';
-        const L_SCISSORS: char = 'C';
+        s.lines().fold(0, |score, line|
+            score + match line {
+                // won:
+                "C X" => 6 + 1,
+                "A Y" => 6 + 2,
+                "B Z" => 6 + 3,
+                // draw:
+                "A X" => 3 + 1,
+                "B Y" => 3 + 2,
+                "C Z" => 3 + 3,
+                // lost:
+                "B X" => 0 + 1,
+                "C Y" => 0 + 2,
+                "A Z" => 0 + 3,
 
-        const R_ROCK: char = 'X';
-        const R_PAPER: char = 'Y';
-        const R_SCISSORS: char = 'Z';
-
-        let mut score = 0;
-
-        for line in s.lines() {
-            let (left, right) = {
-                let mut chars = line.chars();
-                let left = chars.next().unwrap();
-                chars.next();
-                let right = chars.next().unwrap();
-                (left, right)
-            };
-
-            score += match right {
-                R_ROCK => 1,
-                R_PAPER => 2,
-                R_SCISSORS => 3,
-                _ => panic!("right={right}"),
-            };
-
-            score += match (left, right) {
-                (L_ROCK, R_PAPER) | (L_PAPER, R_SCISSORS) | (L_SCISSORS, R_ROCK) => 6,
-                (L_ROCK, R_ROCK) | (L_PAPER, R_PAPER) | (L_SCISSORS, R_SCISSORS) => 3,
-                (L_ROCK, R_SCISSORS) | (L_PAPER, R_ROCK) | (L_SCISSORS, R_PAPER) => 0,
-                _ => panic!("left={left} right={right}"),
-            };
-        }
-
-        score
+                _ => panic!("line='{line}'"),
+            }
+        )
     }
 
     pub fn part_2(s: &str) -> i32 {
-        const L_ROCK: char = 'A';
-        const L_PAPER: char = 'B';
-        const L_SCISSORS: char = 'C';
+        s.lines().fold(0, |score, line|
+            score + match line {
+                //
+                "A Y" => 1 + 3,
+                "B X" => 1 + 0,
+                "C Z" => 1 + 6,
+                //
+                "A Z" => 2 + 6,
+                "B Y" => 2 + 3,
+                "C X" => 2 + 0,
+                //
+                "A X" => 3 + 0,
+                "B Z" => 3 + 6,
+                "C Y" => 3 + 3,
 
-        const R_LOSE: char = 'X';
-        const R_DRAW: char = 'Y';
-        const R_WIN: char = 'Z';
-
-        let mut score = 0;
-
-        for line in s.lines() {
-            let (left, right) = {
-                let mut chars = line.chars();
-                let left = chars.next().unwrap();
-                chars.next();
-                let right = chars.next().unwrap();
-                (left, right)
-            };
-
-            score += match right {
-                R_WIN => 6,
-                R_DRAW => 3,
-                R_LOSE => 0,
-                _ => panic!("right={right}"),
-            };
-
-            score += match (left, right) {
-                (L_ROCK, R_DRAW) | (L_PAPER, R_LOSE) | (L_SCISSORS, R_WIN) => 1,
-                (L_ROCK, R_WIN) | (L_PAPER, R_DRAW) | (L_SCISSORS, R_LOSE) => 2,
-                (L_ROCK, R_LOSE) | (L_PAPER, R_WIN) | (L_SCISSORS, R_DRAW) => 3,
-                _ => panic!("left={left} right={right}"),
-            };
-        }
-
-        score
+                _ => panic!("line='{line}'"),
+            }
+        )
     }
 }
 

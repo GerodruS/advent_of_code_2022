@@ -2,19 +2,11 @@ struct Day01;
 
 impl Day01 {
     pub fn part_1(s: &str) -> i32 {
-        let mut max = 0;
-
-        let mut current = 0;
-        for line in s.lines() {
-            if line.is_empty() {
-                max = max.max(current);
-                current = 0;
-            } else {
-                current += line.parse::<i32>().unwrap();
-            }
-        }
-
-        max.max(current)
+        s.lines().fold((0, 0), |(sum, max), line| {
+            let sum = if line.is_empty() { 0 }
+                          else { sum + line.parse::<i32>().unwrap() };
+            (sum, max.max(sum))
+        }).1
     }
 
     pub fn part_2(s: &str) -> i32 {
