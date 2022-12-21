@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-struct Day20;
+struct Day21;
 
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 enum Monkey {
@@ -11,7 +11,7 @@ enum Monkey {
     Div(usize, usize),
 }
 
-impl Day20 {
+impl Day21 {
     fn parse_monkeys(s: &str) -> (HashMap<&str, usize>, Vec<Monkey>) {
         let mut id_to_i = HashMap::new();
         let mut expressions = Vec::new();
@@ -172,22 +172,22 @@ mod tests {
 
     #[test]
     fn part_1_0() {
-        test(&Day20::part_1, "input/day_21_0.txt", 152);
+        test(&Day21::part_1, "input/day_21_0.txt", 152);
     }
 
     #[test]
     fn part_1_1() {
-        test(&Day20::part_1, "input/day_21_1.txt", 158731561459602);
+        test(&Day21::part_1, "input/day_21_1.txt", 158731561459602);
     }
 
     #[test]
     fn part_2_0() {
-        test(&Day20::part_2, "input/day_21_0.txt", 301);
+        test(&Day21::part_2, "input/day_21_0.txt", 301);
     }
 
     #[test]
     fn part_2_1() {
-        test(&Day20::part_2, "input/day_21_1.txt", 3769668716709);
+        test(&Day21::part_2, "input/day_21_1.txt", 3769668716709);
     }
 
     fn test(f: &dyn Fn(&str) -> i64, path: &str, r: i64) {
