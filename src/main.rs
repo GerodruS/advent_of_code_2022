@@ -21,6 +21,7 @@ mod day_20;
 mod day_21;
 mod day_22;
 mod day_23;
+mod day_24;
 
 fn main() {
     println!("Hello, world!");
