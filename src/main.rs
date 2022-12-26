@@ -1,3 +1,5 @@
+extern crate core;
+
 mod day_01;
 mod day_02;
 mod day_03;
@@ -22,6 +24,7 @@ mod day_21;
 mod day_22;
 mod day_23;
 mod day_24;
+mod day_25;
 
 fn main() {
     println!("Hello, world!");
